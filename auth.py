@@ -9,7 +9,7 @@ def make_auth_response(client_id):
     print("AUTH - Checking database for client_id match")
     with open("db.txt", "r") as clients:
         for row in clients.readlines():
-            credentials = row.split(" ")
+            credentials = row.strip("\n").split(" ")
             client, password = credentials[0], credentials[1]
 
             if client_id == client:
